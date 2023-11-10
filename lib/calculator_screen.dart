@@ -157,11 +157,18 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     }
 
     setState(() {
-      number1 = "$result";
+      // number1 = "$result";
 
-      if (number1.endsWith(".0")) {
-        number1 = number1.substring(0, number1.length - 2);
-      }
+      // if (number1.endsWith(".0")) {
+      //   number1 = number1.substring(0, number1.length - 2);
+      // }
+      if (result % 1 == 0) {
+      // If result is an integer, remove ".0"
+      number1 = result.toInt().toString();
+    } else {
+      // Limit decimals to 5 if there are more than 5 digits after the decimal
+      number1 = result.toStringAsFixed(result.truncateToDouble() == result ? 0 : 4);
+    }
 
       operand = "";
       number2 = "";
