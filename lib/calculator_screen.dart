@@ -167,7 +167,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       number1 = result.toInt().toString();
     } else {
       // Limit decimals to 5 if there are more than 5 digits after the decimal
-      number1 = result.toStringAsFixed(result.truncateToDouble() == result ? 0 : 4);
+      number1 = result.toStringAsFixed(result.truncateToDouble() == result ? 0 : 3);
     }
 
       operand = "";
